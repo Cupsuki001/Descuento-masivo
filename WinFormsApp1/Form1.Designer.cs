@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Credito");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Contado");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Facrura", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
             this.TREEVfactura = new System.Windows.Forms.TreeView();
             this.TXBdescuento = new System.Windows.Forms.TextBox();
             this.CHKBXdescuento = new System.Windows.Forms.CheckBox();
@@ -41,15 +46,27 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TXBtotal = new System.Windows.Forms.TextBox();
             this.MASKEDventa = new System.Windows.Forms.MaskedTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // TREEVfactura
             // 
-            this.TREEVfactura.Location = new System.Drawing.Point(28, 25);
+            this.TREEVfactura.Location = new System.Drawing.Point(12, 25);
             this.TREEVfactura.Name = "TREEVfactura";
-            this.TREEVfactura.Size = new System.Drawing.Size(121, 168);
+            treeNode1.Name = "Nodo1";
+            treeNode1.Text = "Credito";
+            treeNode2.Name = "Nodo2";
+            treeNode2.Text = "Contado";
+            treeNode3.Name = "Nodo0";
+            treeNode3.Text = "Facrura";
+            this.TREEVfactura.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode3});
+            this.TREEVfactura.Size = new System.Drawing.Size(138, 69);
             this.TREEVfactura.TabIndex = 0;
+            this.TREEVfactura.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TREEVfactura_AfterSelect);
             // 
             // TXBdescuento
             // 
@@ -65,7 +82,7 @@
             this.CHKBXdescuento.AutoSize = true;
             this.CHKBXdescuento.BackColor = System.Drawing.Color.DarkTurquoise;
             this.CHKBXdescuento.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.CHKBXdescuento.Location = new System.Drawing.Point(47, 223);
+            this.CHKBXdescuento.Location = new System.Drawing.Point(32, 182);
             this.CHKBXdescuento.Name = "CHKBXdescuento";
             this.CHKBXdescuento.Size = new System.Drawing.Size(93, 19);
             this.CHKBXdescuento.TabIndex = 4;
@@ -83,6 +100,7 @@
             this.BTNcalcular.TabIndex = 5;
             this.BTNcalcular.Text = "Calcular";
             this.BTNcalcular.UseVisualStyleBackColor = false;
+            this.BTNcalcular.Click += new System.EventHandler(this.BTNcalcular_Click);
             // 
             // BTNlimpiar
             // 
@@ -129,7 +147,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(168, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(415, 181);
+            this.groupBox1.Size = new System.Drawing.Size(415, 189);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bienvenido";
@@ -187,12 +205,36 @@
             this.MASKEDventa.TabIndex = 12;
             this.MASKEDventa.ValidatingType = typeof(int);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(20, 19);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(83, 20);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "NINGUNO";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.Teal;
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.groupBox2.Location = new System.Drawing.Point(12, 106);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(138, 56);
+            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "ESTADO";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaGreen;
             this.ClientSize = new System.Drawing.Size(621, 273);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BTNsalir);
@@ -205,6 +247,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,5 +269,7 @@
         private Label label2;
         private TextBox TXBtotal;
         private MaskedTextBox MASKEDventa;
+        private Label label5;
+        private GroupBox groupBox2;
     }
 }
