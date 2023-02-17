@@ -30,7 +30,7 @@
         {
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Credito");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Contado");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Facrura", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Factura", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2});
             this.TREEVfactura = new System.Windows.Forms.TreeView();
@@ -61,7 +61,7 @@
             treeNode2.Name = "Nodo2";
             treeNode2.Text = "Contado";
             treeNode3.Name = "Nodo0";
-            treeNode3.Text = "Facrura";
+            treeNode3.Text = "Factura";
             this.TREEVfactura.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode3});
             this.TREEVfactura.Size = new System.Drawing.Size(138, 69);
